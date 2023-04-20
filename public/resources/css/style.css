@@ -1,0 +1,13 @@
+ body {
+    background-color: gray;
+    overflow: hidden;
+    font-family: 'Poppins';
+ }
+
+ .app-container {
+    margin: 3rem auto;
+    height: 500px;
+    width: 30%;
+    background-color: black;
+    border-radius: 5%;
+ }
