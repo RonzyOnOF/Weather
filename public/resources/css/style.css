@@ -34,7 +34,7 @@
  .app-container img {
    width: 45%;
    margin: 1rem auto;
-   /* display: none; */
+   display: none;
  }
 
  .stat-container {
