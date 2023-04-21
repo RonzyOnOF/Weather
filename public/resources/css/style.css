@@ -20,6 +20,7 @@
    padding-top: 2%;
    padding-bottom: 2%;
    background-color: white;
+
  }
 
  .search input {
@@ -47,6 +48,32 @@
 
  .weather-description {
    font-size: 2rem;
+ }
+
+ .in-depth-stats {
+  margin-top: 80px;
+ }
+
+ .in-depth-stats p {
+  font-size: 40px;
+  display: none;
+ }
+
+ .toggle {
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+ }
+
+
+ .toggle p {
+  font-size: 18px;
+  padding: 0 3px;
+  cursor: pointer;
+ }
+
+ .toggle p:hover {
+  opacity: 60%;
  }
 
  
