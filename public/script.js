@@ -36,7 +36,12 @@ const getWeather = async () => {
 
 
 const kelvinToF = (temp) => {
-    return (temp - 237.15) * 9/5 + 32;
+    temp = Number(temp);
+    temp = (temp - 273.15) * 9/5;
+    temp += 32;
+    console.log(temp);
+    stats[1] = Math.round(temp.toString());
+    return stats;
 }
 
 const kelvinToC = (temp) => {
@@ -97,6 +102,8 @@ const weatherLogo = (weather) => {
 
 submit.addEventListener('click', async () => {
     const location = await getWeather();
+    kelvinToF(stats[1]);
+    console.log(stats[1]);
     weatherLogo(stats);
     console.log(stats[0]);
 
