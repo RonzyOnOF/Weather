@@ -1,6 +1,6 @@
  body {
    background-color: lightcoral;
-   overflow: hidden;
+   overflow: scroll;
    font-family: 'Poppins';
  }
 

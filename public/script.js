@@ -7,6 +7,11 @@ const temp = document.getElementById("temperature");
 const condition = document.getElementById("weather-condition");
 const city = document.getElementById("cityText");
 const toggle = document.querySelector(".toggle");
+const fButton = document.getElementById("F");
+const cButton = document.getElementById("C");
+let kelvin;
+let fahrenheit;
+let celcius;
 let stats = [];
 
 
@@ -44,14 +49,18 @@ const kelvinToF = (temp) => {
     temp = Number(temp);
     temp = (temp - 273.15) * 9/5;
     temp += 32;
-    console.log(temp);
-    stats[1] = Math.round(temp.toString());
-    return stats;
+    // console.log(temp);
+    fahrenheit = Math.round(temp.toString());
+    return fahrenheit;
 }
 
 //convert kelvin to c
 const kelvinToC = (temp) => {
-    return Math.round(temp - 237.15);
+    temp = Number(temp);
+    temp = Math.round(temp - 273.15);
+    temp = temp.toString();
+    celcius = temp;
+    return celcius;
 }
 
 
@@ -64,7 +73,7 @@ const weatherLogo = (weather) => {
             toggle.style.display = 'flex';
             image.src = 'resources/images/cloud.png';
             image.style.display = 'block';
-            temp.innerHTML = `${weather[1]}°F`;
+            temp.innerHTML = `${fahrenheit}°F`;
             condition.innerHTML = weather[0];
             break;
         case 'Rain':
@@ -73,7 +82,7 @@ const weatherLogo = (weather) => {
             toggle.style.display = 'flex';
             image.src = 'resources/images/rain.png';
             image.style.display = 'block';
-            temp.innerHTML = `${weather[1]}°F`;
+            temp.innerHTML = `${fahrenheit}°F`;
             condition.innerHTML = weather[0];
             break;
         case 'Haze':
@@ -82,7 +91,7 @@ const weatherLogo = (weather) => {
             toggle.style.display = 'flex';
             image.src = 'resources/images/cloud.png';
             image.style.display = 'block';
-            temp.innerHTML = `${weather[1]}°F`;
+            temp.innerHTML = `${fahrenheit}°F`;
             condition.innerHTML = weather[0];
             break;
         case 'Thunderstorm':
@@ -91,7 +100,7 @@ const weatherLogo = (weather) => {
             toggle.style.display = 'flex';
             image.src = 'resources/images/snow.png';
             image.style.display = 'block';
-            temp.innerHTML = `${weather[1]}°F`;
+            temp.innerHTML = `${fahrenheit}°F`;
             condition.innerHTML = weather[0];
             break;
         case 'Clear':
@@ -100,7 +109,7 @@ const weatherLogo = (weather) => {
             toggle.style.display = 'flex';
             image.src = 'resources/images/clear.png';
             image.style.display = 'block';
-            temp.innerHTML = `${weather[1]}°F`;
+            temp.innerHTML = `${fahrenheit}°F`;
             condition.innerHTML = weather[0];
             break;
         case 'Snow':
@@ -109,7 +118,7 @@ const weatherLogo = (weather) => {
             toggle.style.display = 'flex';
             image.src = 'resources/images/snow.png';
             image.style.display = 'block';
-            temp.innerHTML = `${weather[1]}°F`;
+            temp.innerHTML = `${fahrenheit}°F`;
             condition.innerHTML = weather[0];
             break;
         case 'Mist':
@@ -118,7 +127,7 @@ const weatherLogo = (weather) => {
             toggle.style.display = 'flex';
             image.src = 'resources/images/mist.png';
             image.style.display = 'block';
-            temp.innerHTML = `${weather[1]}°F`;
+            temp.innerHTML = `${fahrenheit}°F`;
             condition.innerHTML = weather[0];
             break;
         default:
@@ -130,11 +139,25 @@ const weatherLogo = (weather) => {
 //add event listener to submit button
 submit.addEventListener('click', async () => {
     const location = await getWeather();
+    kelvin = stats[1];
     kelvinToF(stats[1]);
     weatherLogo(stats);
 
 
 })
+
+fButton.addEventListener('click', () => {
+    kelvinToF(kelvin);
+    temp.innerHTML = `${fahrenheit}°F`;
+});
+
+cButton.addEventListener('click', () => {
+    kelvinToC(kelvin);
+    temp.innerHTML = `${celcius}°C`;
+
+});
+
+console.log(fButton);
 
 
 
