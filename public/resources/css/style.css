@@ -1,6 +1,6 @@
  body {
    background-color: lightcoral;
-   overflow: scroll;
+   overflow: hidden;
    font-family: 'Poppins';
  }
 
@@ -74,6 +74,12 @@
 
  .toggle p:hover {
   opacity: 60%;
+ }
+
+ @media (max-height: 869px) {
+  .app-container {
+    height: 90vh;
+  }
  }
 
  
