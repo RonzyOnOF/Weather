@@ -9,6 +9,7 @@ const city = document.getElementById("cityText");
 const toggle = document.querySelector(".toggle");
 const fButton = document.getElementById("F");
 const cButton = document.getElementById("C");
+const notFound = document.getElementById("city-not-found");
 let kelvin;
 let fahrenheit;
 let celcius;
@@ -25,6 +26,7 @@ const getWeather = async () => {
     try {
         const response = await fetch(url);
         if (response.ok) {
+            notFound.style.display = 'none';
             const jsonResponse = await response.json();
             console.log('Succesfuly retrieved weather data');
             // console.log(jsonResponse.weather[0].main);
@@ -36,6 +38,8 @@ const getWeather = async () => {
             stats.push(temp);
             stats.push(cit);
             return stats;
+        } else {
+            notFound.style.display = 'block';
         }
     } catch (error) {
         console.log(error);
@@ -157,7 +161,7 @@ cButton.addEventListener('click', () => {
 
 });
 
-console.log(fButton);
+// console.log(fButton);
 
 
 

@@ -76,6 +76,11 @@
   opacity: 60%;
  }
 
+ #city-not-found {
+  display: none;
+  font-size: 40px;
+ }
+
  @media (max-height: 869px) {
   .app-container {
     height: 90vh;
